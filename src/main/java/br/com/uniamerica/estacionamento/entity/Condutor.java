@@ -1,4 +1,4 @@
-package br.com.uniamerica.estacionamento.entitys;
+package br.com.uniamerica.estacionamento.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

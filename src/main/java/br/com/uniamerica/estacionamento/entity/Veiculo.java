@@ -1,4 +1,4 @@
-package br.com.uniamerica.estacionamento.entitys;
+package br.com.uniamerica.estacionamento.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -10,8 +10,9 @@ import lombok.Setter;
 
 public class Veiculo extends AbstractEntity {
     @Getter @Setter
-    @Column(name = "modelo", length = 40, nullable = false, unique = true)
-    Modelo modelo = new Modelo();
+    @ManyToOne
+    @JoinColumn(name = "modelo_id", nullable = false, unique = true)
+    private Modelo modelo;
 
     @Getter @Setter
     @Column (name = "placa", length = 10, nullable = false, unique = true)

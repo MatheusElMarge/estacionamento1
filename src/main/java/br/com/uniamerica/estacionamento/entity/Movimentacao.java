@@ -1,8 +1,6 @@
-package br.com.uniamerica.estacionamento.entitys;
+package br.com.uniamerica.estacionamento.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,14 +12,17 @@ import java.time.LocalTime;
 public class Movimentacao extends AbstractEntity {
 
     @Getter @Setter
-    @Column (name = "veiculo", nullable = false, unique = true)
-    Veiculo veiculo = new Veiculo();//instância da classe veiculo
+    @ManyToOne
+    @JoinColumn(name = "veiculo_id", nullable = false, unique = true)
+    private Veiculo veiculo;//instância da classe veiculo
 
 
     @Getter @Setter
-    @Column (name = "condutor", nullable = false)
-    Condutor condutor = new Condutor();
-    //========================================================
+    @ManyToOne
+    @JoinColumn (name = "condutor_id", nullable = false)
+    private Condutor condutor;
+
+    
     @Getter @Setter
     @Column (name = "entrada", nullable = false)
     private LocalDateTime entrada;
